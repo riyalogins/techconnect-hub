@@ -124,7 +124,9 @@ const SESSIONS: Session[] = [
 ];
 
 function formatTime(time: string) {
-  const [hour, minute] = time.split(":").map(Number);
+  const [hourStr, minuteStr] = time.split(":");
+  const hour = Number(hourStr);
+  const minute = Number(minuteStr);
   const period = hour >= 12 ? "PM" : "AM";
   const displayHour = hour % 12 === 0 ? 12 : hour % 12;
   return `${displayHour}:${minute.toString().padStart(2, "0")} ${period}`;
