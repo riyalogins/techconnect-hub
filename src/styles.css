@@ -65,6 +65,25 @@
   --color-faint: var(--faint);
 }
 
+@theme {
+  /* Typography */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --text-micro: 0.625rem;
+  --text-micro--line-height: 1rem;
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1rem;
+  --text-card: 0.9375rem;
+  --text-card--line-height: 1.25rem;
+  --tracking-eyebrow: 0.2em;
+  /* Hero glow dimensions */
+  --spacing-glow-h: 280px;
+  --spacing-glow-w: 720px;
+  /* Measure tokens */
+  --max-width-hero: 18ch;
+  --max-width-prose-narrow: 52ch;
+}
+
 :root {
   --radius: 0.625rem;
   /* Liquid obsidian — dark-first conference theme */
