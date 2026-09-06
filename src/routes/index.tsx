@@ -189,13 +189,13 @@ function Header({
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <div className="flex items-center gap-3">
           <div className="grid size-8 place-items-center rounded-md bg-gradient-to-br from-surface-2 to-background ring-1 ring-white/15">
-            <span className="font-[family-name:'Space_Grotesk'] font-bold text-sm text-primary">T</span>
+            <span className="font-display font-bold text-sm text-primary">T</span>
           </div>
           <div className="leading-none">
-            <div className="font-[family-name:'Space_Grotesk'] text-[15px] font-semibold tracking-tight">
-              TechConnect <span className="font-[family-name:'JetBrains_Mono'] text-xs text-faint">2026</span>
+            <div className="font-display text-card font-semibold tracking-tight">
+              TechConnect <span className="font-mono text-xs text-faint">2026</span>
             </div>
-            <div className="mt-1 font-[family-name:'JetBrains_Mono'] text-[11px] tracking-wide text-muted">
+            <div className="mt-1 font-mono text-label tracking-wide text-muted">
               Discover. Build. Meet.
             </div>
           </div>
@@ -222,7 +222,7 @@ function Header({
           >
             My Schedule
             {savedCount > 0 && (
-              <span className="grid size-5 place-items-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground pop">
+              <span className="grid size-5 place-items-center rounded-full bg-primary text-micro font-semibold text-primary-foreground pop">
                 {savedCount}
               </span>
             )}
@@ -230,10 +230,10 @@ function Header({
         </nav>
 
         <div className="hidden items-center gap-3 sm:flex">
-          <span className="font-[family-name:'JetBrains_Mono'] text-[11px] text-muted">
+          <span className="font-mono text-label text-muted">
             {savedCount} saved
           </span>
-          <div className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary/40 to-surface-2 text-[11px] font-[family-name:'JetBrains_Mono'] text-primary ring-1 ring-white/15">
+          <div className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary/40 to-surface-2 text-label font-mono text-primary ring-1 ring-white/15">
             AK
           </div>
         </div>
@@ -245,17 +245,17 @@ function Header({
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      <div className="pointer-events-none absolute -top-24 left-1/2 h-[280px] w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 h-glow-h w-glow-w -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
       <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
-        <div className="flex items-center gap-3 font-[family-name:'JetBrains_Mono'] text-[11px] uppercase tracking-[0.2em] text-primary">
+        <div className="flex items-center gap-3 font-mono text-label uppercase tracking-eyebrow text-primary">
           <span className="size-1.5 animate-pulse rounded-full bg-primary" />
           Live Program — 12 Sessions
         </div>
-        <h1 className="mt-5 max-w-[18ch] text-balance font-[family-name:'Space_Grotesk'] text-5xl font-bold tracking-tight sm:text-6xl">
+        <h1 className="mt-5 max-w-hero text-balance font-display text-5xl font-bold tracking-tight sm:text-6xl">
           Discover sessions. Build your schedule.{" "}
           <span className="text-primary">Meet your community.</span>
         </h1>
-        <p className="mt-5 max-w-[52ch] text-balance text-lg text-muted">
+        <p className="mt-5 max-w-prose-narrow text-balance text-lg text-muted">
           A live-built agenda for the 2026 developer &amp; leadership track. Curate the
           sessions that matter to you — your plan assembles itself in real time.
         </p>
@@ -266,7 +266,7 @@ function Hero() {
           >
             Explore the catalog
           </a>
-          <div className="flex items-center gap-6 font-[family-name:'JetBrains_Mono'] text-[11px] text-muted">
+          <div className="flex items-center gap-6 font-mono text-label text-muted">
             <span>
               <span className="text-foreground">02</span> Days
             </span>
@@ -296,12 +296,12 @@ function CatalogView({
     <main id="catalog" className="mx-auto max-w-6xl px-6 py-12">
       <div className="mb-8 flex items-end justify-between">
         <div>
-          <h2 className="font-[family-name:'Space_Grotesk'] text-2xl font-semibold tracking-tight">
+          <h2 className="font-display text-2xl font-semibold tracking-tight">
             Session catalog
           </h2>
           <p className="mt-1 text-sm text-muted">Tap add to build your personal run of show.</p>
         </div>
-        <span className="font-[family-name:'JetBrains_Mono'] text-[11px] text-faint">01 / CATALOG</span>
+        <span className="font-mono text-label text-faint">01 / CATALOG</span>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -337,11 +337,11 @@ function SessionCard({
       className="group relative rounded-2xl bg-gradient-to-b from-surface-2 to-surface p-5 ring-1 ring-white/10 transition duration-300 hover:-translate-y-1 hover:ring-primary/40 rise"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="flex items-center justify-between font-[family-name:'JetBrains_Mono'] text-[11px]">
+      <div className="flex items-center justify-between font-mono text-label">
         <span className="text-primary">{formatTime(session.time)}</span>
         <span className="text-faint">{session.room}</span>
       </div>
-      <h3 className="mt-3 text-balance font-[family-name:'Space_Grotesk'] text-lg font-semibold leading-snug tracking-tight">
+      <h3 className="mt-3 text-balance font-display text-lg font-semibold leading-snug tracking-tight">
         {session.title}
       </h3>
       <p className="mt-1.5 text-sm text-muted">{session.speaker}</p>
@@ -349,7 +349,7 @@ function SessionCard({
         {session.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full bg-white/5 px-2 py-0.5 font-[family-name:'JetBrains_Mono'] text-[11px] text-muted"
+            className="rounded-full bg-white/5 px-2 py-0.5 font-mono text-label text-muted"
           >
             {tag}
           </span>
@@ -384,18 +384,18 @@ function ScheduleView({
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="mb-6 flex items-end justify-between">
           <div>
-            <h2 className="font-[family-name:'Space_Grotesk'] text-2xl font-semibold tracking-tight">
+            <h2 className="font-display text-2xl font-semibold tracking-tight">
               My Schedule
             </h2>
             <p className="mt-1 text-sm text-muted">Sorted by time. This is your plan, live.</p>
           </div>
-          <span className="font-[family-name:'JetBrains_Mono'] text-[11px] text-faint">02 / SCHEDULE</span>
+          <span className="font-mono text-label text-faint">02 / SCHEDULE</span>
         </div>
 
         {sessions.length === 0 ? (
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-surface-2 to-surface ring-1 ring-white/10 px-5 py-12 text-center">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-            <p className="font-[family-name:'Space_Grotesk'] text-lg font-semibold text-foreground">
+            <p className="font-display text-lg font-semibold text-foreground">
               Your schedule is empty
             </p>
             <p className="mx-auto mt-2 max-w-md text-sm text-muted">
@@ -418,18 +418,18 @@ function ScheduleView({
                   className="flex items-center gap-4 px-5 py-4 rise"
                   style={{ animationDelay: `${index * 60}ms` }}
                 >
-                  <span className="w-14 shrink-0 font-[family-name:'JetBrains_Mono'] text-sm text-primary">
+                  <span className="w-14 shrink-0 font-mono text-sm text-primary">
                     {formatTime(session.time)}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-[family-name:'Space_Grotesk'] text-[15px] font-medium tracking-tight text-balance">
+                    <p className="truncate font-display text-card font-medium tracking-tight text-balance">
                       {session.title}
                     </p>
                     <p className="mt-0.5 text-xs text-muted">
                       {session.speaker} · {session.room}
                     </p>
                   </div>
-                  <span className="hidden font-[family-name:'JetBrains_Mono'] text-[10px] uppercase tracking-widest text-faint sm:inline">
+                  <span className="hidden font-mono text-micro uppercase tracking-widest text-faint sm:inline">
                     {session.tags[0]}
                   </span>
                   <button
@@ -453,10 +453,10 @@ function Footer() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-8 sm:flex-row sm:items-center">
-        <span className="font-[family-name:'Space_Grotesk'] text-sm font-semibold tracking-tight">
-          TechConnect <span className="font-[family-name:'JetBrains_Mono'] text-xs text-faint">2026</span>
+        <span className="font-display text-sm font-semibold tracking-tight">
+          TechConnect <span className="font-mono text-xs text-faint">2026</span>
         </span>
-        <span className="font-[family-name:'JetBrains_Mono'] text-[11px] text-faint">
+        <span className="font-mono text-label text-faint">
           A live-built event agenda · Mar 14–15, 2026
         </span>
       </div>
