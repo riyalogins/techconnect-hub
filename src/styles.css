@@ -63,6 +63,7 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-faint: var(--faint);
+  --color-tag: var(--tag);
 }
 
 @theme {
@@ -122,7 +123,8 @@
   /* Extended surface palette */
   --surface: oklch(0.2 0.005 285.9);
   --surface-2: oklch(0.243 0.006 285.9);
-  --faint: oklch(0.507 0.012 248.1);
+  --faint: oklch(0.652 0.012 248.1);
+  --tag: oklch(0.78 0.014 248.1);
 }
 
 .dark {
@@ -147,7 +149,8 @@
   --ring: oklch(0.876 0.168 172.5);
   --surface: oklch(0.2 0.005 285.9);
   --surface-2: oklch(0.243 0.006 285.9);
-  --faint: oklch(0.507 0.012 248.1);
+  --faint: oklch(0.652 0.012 248.1);
+  --tag: oklch(0.78 0.014 248.1);
 }
 
 @layer base {

@@ -349,7 +349,7 @@ function SessionCard({
         {session.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full bg-white/5 px-2 py-0.5 font-mono text-label text-muted"
+            className="rounded-full bg-background px-2 py-0.5 font-mono text-label text-tag ring-1 ring-white/10"
           >
             {tag}
           </span>
