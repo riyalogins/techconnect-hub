@@ -123,6 +123,12 @@ const SESSIONS: Session[] = [
   },
 ];
 
+const RECOMMENDATIONS: { id: string; reason: string }[] = [
+  { id: "s1", reason: "You flagged AI infrastructure" },
+  { id: "s4", reason: "You're building developer tooling" },
+  { id: "s7", reason: "You lead a distributed team" },
+];
+
 function formatTime(time: string) {
   const [hourStr, minuteStr] = time.split(":");
   const hour = Number(hourStr);
@@ -165,7 +171,10 @@ function Index() {
       <Hero />
 
       {activeView === "catalog" ? (
-        <CatalogView sessions={SESSIONS} scheduledIds={scheduledIds} onToggle={toggleSession} />
+        <>
+          <RecommendedSection scheduledIds={scheduledIds} onToggle={toggleSession} />
+          <CatalogView sessions={SESSIONS} scheduledIds={scheduledIds} onToggle={toggleSession} />
+        </>
       ) : (
         <ScheduleView sessions={scheduledSessions} onToggle={toggleSession} />
       )}
@@ -283,6 +292,57 @@ function Hero() {
   );
 }
 
+function RecommendedSection({
+  scheduledIds,
+  onToggle,
+}: {
+  scheduledIds: Set<string>;
+  onToggle: (id: string) => void;
+}) {
+  const picks = RECOMMENDATIONS.flatMap((recommendation) => {
+    const session = SESSIONS.find((s) => s.id === recommendation.id);
+    return session ? [{ session, reason: recommendation.reason }] : [];
+  });
+
+  return (
+    <section className="border-b border-border bg-surface/30">
+      <div className="mx-auto max-w-6xl px-6 py-12">
+        <div className="mb-8 flex items-end justify-between gap-6">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-label uppercase tracking-eyebrow text-primary">
+              <span className="size-1.5 rounded-full bg-primary" />
+              For you
+            </div>
+            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight">
+              Recommended for You
+            </h2>
+            <p className="mt-1 max-w-prose-narrow text-sm text-muted">
+              Three picks from the 2026 program, chosen from the interests you shared when
+              you registered. Add one and it drops straight into your schedule.
+            </p>
+          </div>
+          <span className="hidden shrink-0 font-mono text-label text-faint sm:inline">
+            3 of 12 sessions
+          </span>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {picks.map(({ session, reason }, index) => (
+            <SessionCard
+              key={session.id}
+              session={session}
+              isScheduled={scheduledIds.has(session.id)}
+              onToggle={() => onToggle(session.id)}
+              index={index}
+              reason={reason}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CatalogView({
   sessions,
   scheduledIds,
@@ -324,19 +384,29 @@ function SessionCard({
   isScheduled,
   onToggle,
   index,
+  reason,
 }: {
   session: Session;
   isScheduled: boolean;
   onToggle: () => void;
   index: number;
+  reason?: string;
 }) {
   const delay = Math.min(index * 60, 600);
 
   return (
     <article
-      className="group relative rounded-2xl bg-gradient-to-b from-surface-2 to-surface p-5 ring-1 ring-white/10 transition duration-300 hover:-translate-y-1 hover:ring-primary/40 rise"
+      className={`group relative rounded-2xl bg-gradient-to-b from-surface-2 to-surface p-5 ring-1 transition duration-300 hover:-translate-y-1 hover:ring-primary/40 rise ${
+        reason ? "ring-primary/25" : "ring-white/10"
+      }`}
       style={{ animationDelay: `${delay}ms` }}
     >
+      {reason && (
+        <div className="mb-3 flex items-center gap-1.5 font-mono text-label text-primary">
+          <span aria-hidden="true">{"✦"}</span>
+          <span className="truncate">{reason}</span>
+        </div>
+      )}
       <div className="flex items-center justify-between font-mono text-label">
         <span className="text-primary">{formatTime(session.time)}</span>
         <span className="text-faint">{session.room}</span>
