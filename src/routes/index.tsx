@@ -28,7 +28,7 @@ const SESSIONS: Session[] = [
   {
     id: "s1",
     title: "The Next Decade of AI Infrastructure",
-    speaker: "Sofia Marchetti",
+    speaker: "Sarah Whitfield",
     time: "09:00",
     room: "Main Stage",
     tags: ["AI", "Cloud"],
@@ -36,7 +36,7 @@ const SESSIONS: Session[] = [
   {
     id: "s2",
     title: "Leading Through Deep Uncertainty",
-    speaker: "Dr. Elena Vasquez",
+    speaker: "Dr. Marcus Bell",
     time: "09:45",
     room: "Room A",
     tags: ["Leadership", "Strategy"],
@@ -44,7 +44,7 @@ const SESSIONS: Session[] = [
   {
     id: "s3",
     title: "Rust in Production: A Field Guide",
-    speaker: "Tomas Lindqvist",
+    speaker: "Priya Nair",
     time: "10:30",
     room: "Room B",
     tags: ["Rust", "Systems"],
@@ -52,7 +52,7 @@ const SESSIONS: Session[] = [
   {
     id: "s4",
     title: "Designing APIs People Actually Love",
-    speaker: "Sam Whitfield",
+    speaker: "Nikhil Rao",
     time: "11:15",
     room: "Workshop Lab",
     tags: ["APIs", "DX"],
@@ -60,7 +60,7 @@ const SESSIONS: Session[] = [
   {
     id: "s5",
     title: "Observability on a Shoestring Budget",
-    speaker: "Ravi Menon",
+    speaker: "Grace Kim",
     time: "12:00",
     room: "Room A",
     tags: ["SRE", "Ops"],
@@ -68,7 +68,7 @@ const SESSIONS: Session[] = [
   {
     id: "s6",
     title: "On-Call Culture Without the Burnout",
-    speaker: "Fatima Al-Rashid",
+    speaker: "Hannah Brooks",
     time: "13:00",
     room: "Main Stage",
     tags: ["Culture", "SRE"],
@@ -76,7 +76,7 @@ const SESSIONS: Session[] = [
   {
     id: "s7",
     title: "The Async Organization",
-    speaker: "Grace Kim",
+    speaker: "Danny Kowalczyk",
     time: "13:45",
     room: "Room B",
     tags: ["Leadership", "Remote"],
@@ -92,7 +92,7 @@ const SESSIONS: Session[] = [
   {
     id: "s9",
     title: "The Cost of Every Query",
-    speaker: "Priya Nair",
+    speaker: "Tom Brennan",
     time: "15:15",
     room: "Room A",
     tags: ["Data", "FinOps"],
@@ -116,7 +116,7 @@ const SESSIONS: Session[] = [
   {
     id: "s12",
     title: "Designing for Trust",
-    speaker: "Marcus Bell",
+    speaker: "Jess Baker",
     time: "17:30",
     room: "Workshop Lab",
     tags: ["UX", "Ethics"],
