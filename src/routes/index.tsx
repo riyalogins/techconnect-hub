@@ -292,6 +292,57 @@ function Hero() {
   );
 }
 
+function RecommendedSection({
+  scheduledIds,
+  onToggle,
+}: {
+  scheduledIds: Set<string>;
+  onToggle: (id: string) => void;
+}) {
+  const picks = RECOMMENDATIONS.flatMap((recommendation) => {
+    const session = SESSIONS.find((s) => s.id === recommendation.id);
+    return session ? [{ session, reason: recommendation.reason }] : [];
+  });
+
+  return (
+    <section className="border-b border-border bg-surface/30">
+      <div className="mx-auto max-w-6xl px-6 py-12">
+        <div className="mb-8 flex items-end justify-between gap-6">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-label uppercase tracking-eyebrow text-primary">
+              <span className="size-1.5 rounded-full bg-primary" />
+              For you
+            </div>
+            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight">
+              Recommended for You
+            </h2>
+            <p className="mt-1 max-w-prose-narrow text-sm text-muted">
+              Three picks from the 2026 program, chosen from the interests you shared when
+              you registered. Add one and it drops straight into your schedule.
+            </p>
+          </div>
+          <span className="hidden shrink-0 font-mono text-label text-faint sm:inline">
+            3 of 12 sessions
+          </span>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {picks.map(({ session, reason }, index) => (
+            <SessionCard
+              key={session.id}
+              session={session}
+              isScheduled={scheduledIds.has(session.id)}
+              onToggle={() => onToggle(session.id)}
+              index={index}
+              reason={reason}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CatalogView({
   sessions,
   scheduledIds,
