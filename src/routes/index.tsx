@@ -171,7 +171,10 @@ function Index() {
       <Hero />
 
       {activeView === "catalog" ? (
-        <CatalogView sessions={SESSIONS} scheduledIds={scheduledIds} onToggle={toggleSession} />
+        <>
+          <RecommendedSection scheduledIds={scheduledIds} onToggle={toggleSession} />
+          <CatalogView sessions={SESSIONS} scheduledIds={scheduledIds} onToggle={toggleSession} />
+        </>
       ) : (
         <ScheduleView sessions={scheduledSessions} onToggle={toggleSession} />
       )}
