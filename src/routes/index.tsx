@@ -123,6 +123,12 @@ const SESSIONS: Session[] = [
   },
 ];
 
+const RECOMMENDATIONS: { id: string; reason: string }[] = [
+  { id: "s1", reason: "You flagged AI infrastructure" },
+  { id: "s4", reason: "You're building developer tooling" },
+  { id: "s7", reason: "You lead a distributed team" },
+];
+
 function formatTime(time: string) {
   const [hourStr, minuteStr] = time.split(":");
   const hour = Number(hourStr);
