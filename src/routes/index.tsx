@@ -333,19 +333,29 @@ function SessionCard({
   isScheduled,
   onToggle,
   index,
+  reason,
 }: {
   session: Session;
   isScheduled: boolean;
   onToggle: () => void;
   index: number;
+  reason?: string;
 }) {
   const delay = Math.min(index * 60, 600);
 
   return (
     <article
-      className="group relative rounded-2xl bg-gradient-to-b from-surface-2 to-surface p-5 ring-1 ring-white/10 transition duration-300 hover:-translate-y-1 hover:ring-primary/40 rise"
+      className={`group relative rounded-2xl bg-gradient-to-b from-surface-2 to-surface p-5 ring-1 transition duration-300 hover:-translate-y-1 hover:ring-primary/40 rise ${
+        reason ? "ring-primary/25" : "ring-white/10"
+      }`}
       style={{ animationDelay: `${delay}ms` }}
     >
+      {reason && (
+        <div className="mb-3 flex items-center gap-1.5 font-mono text-label text-primary">
+          <span aria-hidden="true">{"✦"}</span>
+          <span className="truncate">{reason}</span>
+        </div>
+      )}
       <div className="flex items-center justify-between font-mono text-label">
         <span className="text-primary">{formatTime(session.time)}</span>
         <span className="text-faint">{session.room}</span>
